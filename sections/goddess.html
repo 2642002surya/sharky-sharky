@@ -1,0 +1,39 @@
+<div class="section goddess-section">
+  <h3>The Money Goddess</h3>
+  <div class="goddess-container">
+    <img src="images/goddess.png" alt="Money Goddess" class="goddess-img">
+    <div class="coin coin1">💰</div>
+    <div class="coin coin2">💰</div>
+    <div class="coin coin3">💰</div>
+    <div class="coin coin4">💰</div>
+    <div class="coin coin5">💰</div>
+  </div>
+</div>
+<style>
+  .goddess-section {
+    text-align: center;
+    margin: 40px 0;
+  }
+  .goddess-container {
+    position: relative;
+    display: inline-block;
+  }
+  .goddess-img {
+    width: 200px;
+    height: auto;
+  }
+  .coin {
+    position: absolute;
+    font-size: 24px;
+    animation: floatCoin 3s infinite ease-in-out;
+  }
+  .coin1 { top: -20px; left: 20px; animation-delay: 0s; }
+  .coin2 { top: -30px; right: 20px; animation-delay: 0.5s; }
+  .coin3 { bottom: -20px; left: 50%; transform: translateX(-50%); animation-delay: 1s; }
+  .coin4 { top: 10px; left: -20px; animation-delay: 1.5s; }
+  .coin5 { bottom: -30px; right: -20px; animation-delay: 2s; }
+
+  @keyframes floatCoin {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }

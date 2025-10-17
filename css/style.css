@@ -1,0 +1,126 @@
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(135deg, #f9d976, #f39c12, #ffcc00);
+  color: #5a3e1b;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  text-align: center;
+  color: #fff3b0;
+  text-shadow: 2px 2px #5a3e1b66;
+  margin: 10px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.section {
+  margin: 40px 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 20px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.calculator input {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin: 5px;
+  width: 120px;
+  font-weight: bold;
+}
+
+.calculator button {
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: none;
+  background: linear-gradient(45deg, #ffd700, #ffb800);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.calculator button:hover {
+  transform: scale(1.1);
+}
+
+.goddess-img {
+  display: block;
+  margin: 20px auto;
+  max-width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  animation: float 2s infinite alternate;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  background: rgba(255,255,255,0.3);
+  border-radius: 20px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+  color: #5a3e1b;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+  background: rgba(255,255,255,0.5);
+}
+
+.site-footer {
+  text-align: center;
+  margin: 20px 0;
+  color: #5a3e1b;
+}
+
+.goddess-container {
+  position: relative;
+  display: inline-block;
+}
+
+.coin {
+  display: inline-block;
+  position: absolute;
+  font-size: 24px;
+  animation: floatCoin 4s infinite ease-in-out, rotateCoin 3s infinite linear;
+}
+
+.coin1 { top: 10px; left: 20px; animation-delay: 0s; }
+.coin2 { top: 50px; left: 150px; animation-delay: 0.5s; }
+.coin3 { top: 120px; left: 60px; animation-delay: 1s; }
+.coin4 { top: 80px; left: 120px; animation-delay: 1.5s; }
+.coin5 { top: 30px; left: 90px; animation-delay: 2s; }
+
+@keyframes floatCoin {
+  0% { transform: translateY(0) scale(1); opacity: 0.8; }
+  50% { transform: translateY(-20px) scale(1.2); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 0.8; }
+}
+
+@keyframes rotateCoin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
