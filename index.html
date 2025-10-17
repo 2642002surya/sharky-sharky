@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sharky Sharky Loans Pvt Ltd</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #f9d976, #f39c12, #ffcc00);
+      color: #5a3e1b;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      text-align: center;
+      color: #fff3b0;
+      text-shadow: 2px 2px #5a3e1b66;
+      margin: 10px 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .section {
+      margin: 40px 0;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 20px;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .calculator input {
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      margin: 5px;
+      width: 120px;
+      font-weight: bold;
+    }
+
+    .calculator button {
+      padding: 10px 20px;
+      border-radius: 15px;
+      border: none;
+      background: linear-gradient(45deg, #ffd700, #ffb800);
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .calculator button:hover {
+      transform: scale(1.1);
+    }
+
+    /* Human-like Money Goddess SVG */
+    .statue {
+      display: block;
+      margin: 20px auto;
+      max-width: 300px;
+    }
+
+    .coin {
+      animation: float 2s infinite alternate;
+    }
+
+    .glimmer {
+      animation: shine 1.5s infinite alternate;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
+    }
+
+    @keyframes shine {
+      0% { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
+
+    /* Fun Cards */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 20px;
+      width: 250px;
+      text-align: center;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+      color: #5a3e1b;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.05);
+      background: rgba(255,255,255,0.5);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>SHARKY SHARKY LOANS PVT LTD</h1>
+  <h2>INTEREST 50% PER DAY GOLD LOANS</h2>
+
+  <!-- Loan Calculator -->
+  <div class="section calculator">
+    <h3>Loan Calculator</h3>
+    <input type="number" id="amount" placeholder="Principal (₹)" value="1000">
+    <input type="number" id="days" placeholder="Days" value="1">
+    <button onclick="calculateLoan()">Calculate</button>
+    <p id="result" style="margin-top:10px;font-size:18px;"></p>
+  </div>
+
+  <!-- Human-like Money Goddess -->
+  <div class="section">
+    <h3>The Money Goddess</h3>
+    <svg class="statue" viewBox="0 0 200 200">
+      <!-- Plinth -->
+      <rect x="50" y="160" width="100" height="10" fill="#b08d57" rx="3" />
+
+      <!-- Legs -->
+      <rect x="85" y="140" width="15" height="20" fill="#fbbf24" rx="3" />
+      <rect x="100" y="140" width="15" height="20" fill="#fbbf24" rx="3" />
+
+      <!-- Body -->
+      <ellipse cx="100" cy="100" rx="30" ry="40" fill="#fcd34d" />
+
+      <!-- Arms -->
+      <line x1="70" y1="90" x2="40" y2="70" stroke="#fbbf24" stroke-width="6" stroke-linecap="round"/>
+      <line x1="130" y1="90" x2="160" y2="70" stroke="#fbbf24" stroke-width="6" stroke-linecap="round"/>
+
+      <!-- Head -->
+      <circle cx="100" cy="60" r="15" fill="#ffe066" />
+
+      <!-- Coins in hands -->
+      <circle class="coin glimmer" cx="35" cy="65" r="6" fill="#ffd700" />
+      <circle class="coin glimmer" cx="165" cy="65" r="6" fill="#ffd700" />
+
+      <!-- Floating coins -->
+      <circle class="coin" cx="90" cy="50" r="5" fill="#fff176" />
+      <circle class="coin" cx="110" cy="50" r="5" fill="#fff176" />
+      <circle class="coin" cx="100" cy="80" r="6" fill="#ffd700" />
+      <circle class="coin" cx="80" cy="110" r="5" fill="#ffec99" />
+      <circle class="coin" cx="120" cy="110" r="5" fill="#ffec99" />
+    </svg>
+  </div>
+
+  <!-- Fun Cards -->
+  <div class="section cards">
+    <div class="card">We accept all gold 🏆</div>
+    <div class="card">Isekai-friendly loans 🌌</div>
+    <div class="card">Instant approval ⚡</div>
+    <div class="card">Shark reminders 🦈</div>
+  </div>
+</div>
+
+<script>
+  function calculateLoan() {
+    const P = parseFloat(document.getElementById('amount').value) || 0;
+    const n = parseInt(document.getElementById('days').value) || 0;
+    const r = 0.5; // 50% per day
+    const total = P * Math.pow(1 + r, n);
+    const interest = total - P;
+    document.getElementById('result').innerHTML =
+      `Total: ₹${total.toFixed(2)}<br>Interest: ₹${interest.toFixed(2)}`;
+  }
+</script>
+
+</body>
+</html>
