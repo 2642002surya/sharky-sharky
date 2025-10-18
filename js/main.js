@@ -2,15 +2,18 @@
 function loadSection(id, path) {
   fetch(path)
     .then(response => response.text())
-    .then(html => document.getElementById(id).innerHTML = html);
+    .then(html => document.getElementById(id).innerHTML = html)
+    .catch(err => console.error(`Error loading ${path}:`, err));
 }
 
 // Load all sections
 loadSection('header', 'header.html');
 loadSection('footer', 'footer.html');
 loadSection('calculator-section', 'sections/calculator.html');
+loadSection('founders-section', 'sections/founders.html');
 loadSection('goddess-section', 'sections/goddess.html');
 loadSection('cards-section', 'sections/cards.html');
+loadSection('terms-section', 'sections/terms.html'); // 🆕 Added T&C section
 
 // Loan calculator function
 function calculateLoan() {
